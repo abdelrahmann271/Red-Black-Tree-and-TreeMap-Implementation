@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import javax.management.RuntimeErrorException;
+
 import java.util.Set;
 
 public class TreeMap<T extends Comparable<T>, V> implements ITreeMap<T, V> {
+
+	private static final Exception RuntimeErrorException = null;
 
 	@Override
 	public Entry<T, V> ceilingEntry(T key) {
@@ -119,7 +124,10 @@ public class TreeMap<T extends Comparable<T>, V> implements ITreeMap<T, V> {
 	@Override
 	public void put(T key, V value) {
 		// TODO Auto-generated method stub
-		
+		if( key ==null || value ==null) {
+			Error e = null;
+		    throw new RuntimeErrorException(e);
+		}				
 	}
 
 	@Override

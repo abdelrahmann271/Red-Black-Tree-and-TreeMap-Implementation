@@ -398,9 +398,10 @@ public class UnitTest {
 		
 		try {
 			Random r = new Random();
-			for(int i = 0; i < 100; i++) {
+			for(int i = 0; i < 1; i++) {
 				int key = r.nextInt(1000);
 				redBlackTree.insert(key, "toto" + key);
+				//System.out.println(redBlackTree.getRoot());
 				Assert.assertTrue(verifyProps(redBlackTree.getRoot()));
 			}
 				
@@ -1696,7 +1697,10 @@ public class UnitTest {
 	}
 
 	private boolean verifyProperty3(INode<Integer, String> node) {
-		if (node == null || node.isNull()) return node.getColor() == INode.BLACK;
+		if (node == null || node.isNull()) {
+			System.out.println(node);
+			return node.getColor() == INode.BLACK;
+		}
 
 		return verifyProperty3(node.getLeftChild()) && verifyProperty3(node.getRightChild());
 	}
