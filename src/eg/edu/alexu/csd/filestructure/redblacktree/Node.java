@@ -7,7 +7,7 @@ public class Node<T extends Comparable<T>, V> implements INode<T, V> {
 	private Node<T, V> rightChild = null;
 	private T key = null;
 	private V value = null;
-	private Boolean color= null;
+	private Boolean color= false;
 	
 	@Override
 	public void setParent(INode<T, V> parent) {
@@ -84,8 +84,7 @@ public class Node<T extends Comparable<T>, V> implements INode<T, V> {
 	@Override
 	public boolean isNull() {
 		// TODO Auto-generated method stub
-		//if(this.key == null && this.value == null)
-		if(this == null)
+		if(this.key == null && this.value == null)
 			return true;
 		return false;
 	}

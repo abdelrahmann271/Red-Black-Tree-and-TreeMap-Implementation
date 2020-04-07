@@ -584,8 +584,9 @@ public class UnitTest {
 				list.add(key);
 				redBlackTree.insert(key, "soso" + key);
 			}
-			for (Integer elem : list) 
+			for (Integer elem : list) {
 				redBlackTree.delete(elem);
+			}
 			INode<Integer, String> node = redBlackTree.getRoot();
 			if (!(node == null || node.isNull()))
 				Assert.fail();			
@@ -617,7 +618,7 @@ public class UnitTest {
 				if (!list.contains(key))
 					Assert.assertFalse(redBlackTree.delete(key));
 			}
-			
+			System.out.println("lol");
 			Assert.assertTrue(verifyProps(redBlackTree.getRoot()));
 		} catch (Throwable e) {
 			TestRunner.fail("Fail to handle deletion", e);
@@ -1698,7 +1699,6 @@ public class UnitTest {
 
 	private boolean verifyProperty3(INode<Integer, String> node) {
 		if (node == null || node.isNull()) {
-			System.out.println(node);
 			return node.getColor() == INode.BLACK;
 		}
 
@@ -1714,7 +1714,7 @@ public class UnitTest {
 		return verifyProperty4(node.getLeftChild()) && verifyProperty4(node.getRightChild());
 	}
 	
-	private boolean verifyProperty5(INode<Integer, String> node) {
+	public boolean verifyProperty5(INode<Integer, String> node) {
 		boolean[] ans = new boolean[]{true};
 		verifyProperty5Helper(node, ans);
 		return ans[0];
@@ -1731,6 +1731,11 @@ public class UnitTest {
 	}
 
 	private boolean verifyProps(INode<Integer, String> root) {
+		System.out.println(verifyProperty2(root));
+		System.out.println(verifyProperty3(root));
+		System.out.println(verifyProperty4(root));
+		System.out.println(verifyProperty5(root));
+		System.out.println(validateBST(root, null, null));
 		return verifyProperty2(root) && verifyProperty3(root) && verifyProperty4(root) && verifyProperty5(root) && validateBST(root, null, null);
 	}
 
