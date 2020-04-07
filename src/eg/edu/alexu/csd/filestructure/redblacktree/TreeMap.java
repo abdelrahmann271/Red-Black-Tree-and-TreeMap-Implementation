@@ -34,6 +34,11 @@ public class TreeMap<T extends Comparable<T>, V> implements ITreeMap<T, V> {
 	@Override
 	public boolean containsKey(T key) {
 		// TODO Auto-generated method stub
+		if(key == null) {
+			Error e = null;
+			throw new RuntimeErrorException(e);
+		}
+
 		return false;
 	}
 

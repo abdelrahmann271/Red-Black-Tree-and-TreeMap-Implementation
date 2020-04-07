@@ -532,8 +532,10 @@ public class UnitTest {
 			for (Integer elem : list) 
 				Assert.assertTrue(redBlackTree.delete(elem));
 			INode<Integer, String> node = redBlackTree.getRoot();
+
 			if ((node == null || node.isNull()))
 				Assert.fail();
+//			System.out.println("a7aqqqq");
 			Assert.assertTrue(verifyProps(node));
 		} catch (Throwable e) {
 			TestRunner.fail("Fail to handle deletion", e);
@@ -584,12 +586,20 @@ public class UnitTest {
 				list.add(key);
 				redBlackTree.insert(key, "soso" + key);
 			}
+//			int i=0;
+			System.out.println(list.size());
 			for (Integer elem : list) {
+//				System.out.println(i);
 				redBlackTree.delete(elem);
+//				i++;
 			}
+			System.out.println("a7a");
 			INode<Integer, String> node = redBlackTree.getRoot();
+//			System.out.println("root "+node);
+			System.out.println(node.getKey());
 			if (!(node == null || node.isNull()))
 				Assert.fail();			
+			System.out.println("a7a2");
 			Assert.assertTrue(verifyProps(node));
 		} catch (Throwable e) {
 			TestRunner.fail("Fail to handle deletion", e);
@@ -618,7 +628,6 @@ public class UnitTest {
 				if (!list.contains(key))
 					Assert.assertFalse(redBlackTree.delete(key));
 			}
-			System.out.println("lol");
 			Assert.assertTrue(verifyProps(redBlackTree.getRoot()));
 		} catch (Throwable e) {
 			TestRunner.fail("Fail to handle deletion", e);
@@ -1722,20 +1731,21 @@ public class UnitTest {
 
 	private int verifyProperty5Helper(INode<Integer, String> node, boolean[] ans) {
 		if (node == null) return 1;
-
+		
 		int leftCount = verifyProperty5Helper(node.getLeftChild(), ans);
 		int rightCount = verifyProperty5Helper(node.getRightChild(), ans);
-
+//		System.out.println("Left count " +leftCount );
+//		System.out.println("right count " +rightCount);
 		ans[0] = ans[0] && (leftCount == rightCount);
 		return leftCount + (!isRed(node)? 1 : 0);
 	}
 
 	private boolean verifyProps(INode<Integer, String> root) {
-		System.out.println(verifyProperty2(root));
-		System.out.println(verifyProperty3(root));
-		System.out.println(verifyProperty4(root));
-		System.out.println(verifyProperty5(root));
-		System.out.println(validateBST(root, null, null));
+//		System.out.println(verifyProperty2(root));
+//		System.out.println(verifyProperty3(root));
+//		System.out.println(verifyProperty4(root));
+//		System.out.println(verifyProperty5(root));
+//		System.out.println(validateBST(root, null, null));
 		return verifyProperty2(root) && verifyProperty3(root) && verifyProperty4(root) && verifyProperty5(root) && validateBST(root, null, null);
 	}
 
