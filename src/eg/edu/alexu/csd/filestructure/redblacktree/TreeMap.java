@@ -16,12 +16,20 @@ public class TreeMap<T extends Comparable<T>, V> implements ITreeMap<T, V> {
 	@Override
 	public Entry<T, V> ceilingEntry(T key) {
 		// TODO Auto-generated method stub
+		if(key == null) {
+			Error e = null;
+			throw new RuntimeErrorException(e);
+		}
 		return null;
 	}
 
 	@Override
 	public T ceilingKey(T key) {
 		// TODO Auto-generated method stub
+		if(key == null) {
+			Error e = null;
+			throw new RuntimeErrorException(e);
+		}
 		return null;
 	}
 
@@ -45,6 +53,11 @@ public class TreeMap<T extends Comparable<T>, V> implements ITreeMap<T, V> {
 	@Override
 	public boolean containsValue(V value) {
 		// TODO Auto-generated method stub
+		if(value == null) {
+			Error e = null;
+			throw new RuntimeErrorException(e);
+		}
+
 		return false;
 	}
 
@@ -69,18 +82,30 @@ public class TreeMap<T extends Comparable<T>, V> implements ITreeMap<T, V> {
 	@Override
 	public Entry<T, V> floorEntry(T key) {
 		// TODO Auto-generated method stub
+		if (key == null ) {
+			Error e = null;
+			throw new RuntimeErrorException(e);
+		}
 		return null;
 	}
 
 	@Override
 	public T floorKey(T key) {
 		// TODO Auto-generated method stub
+		if(key == null) {
+			Error e = null;
+			throw new RuntimeErrorException(e);
+		}
 		return null;
 	}
 
 	@Override
 	public V get(T key) {
 		// TODO Auto-generated method stub
+		if (key == null ) {
+			Error e = null;
+			throw new RuntimeErrorException(e);
+		}
 		return null;
 	}
 
@@ -144,6 +169,10 @@ public class TreeMap<T extends Comparable<T>, V> implements ITreeMap<T, V> {
 	@Override
 	public boolean remove(T key) {
 		// TODO Auto-generated method stub
+		if(key == null) {
+			Error e = null;
+			throw new RuntimeErrorException(e);
+		}
 		return false;
 	}
 

@@ -1,40 +1,73 @@
 package eg.edu.alexu.csd.filestructure.redblacktree;
 
+import java.util.Random;
+
+import org.junit.Assert;
+
 public class Test {
 	
 	public static <T> void main(String[] args) {
 		
-		RedBlackTree<Integer, String> v = new RedBlackTree<Integer,String>();
-		//50 is root
+		UnitTest d = new UnitTest();
+		RedBlackTree<Integer, String> v = new RedBlackTree<>();
+		
+		v.insert(2953,"2953");
+		v.insert(2524,"2524");
+		v.insert(6553,"6553");
+		v.insert(2250,"2250");
+		v.insert(1931,"1931");
+		v.insert(6551,"6551");
+		v.insert(9067,"9067");
+		v.insert(6093,"6093");
+		v.insert(3339,"3339");
+		v.insert(2074,"2074");
+		
+		v.delete(6553);
+		v.delete(1931);
+		v.delete(9067);
+		System.out.println();
+		UnitTest c = new UnitTest();
+		System.out.println(c.verifyProps(v.getRoot()));
+		
+		RBTreePrinter.print(v.getRoot());
+//		Random r = new Random();
+//		for(int i = 0; i < 100; i++) {
+//			int key = r.nextInt(1000);
+//			redBlackTree.insert(key, "toto" + key);
+//			System.out.println(d.verifyProps(redBlackTree.getRoot()));
+//		}
+		
+//		RedBlackTree<Integer, String> v = new RedBlackTree<Integer,String>();
+//		//50 is root
 //		INode<Integer, String> Node20 = new Node<Integer, String>();
-		INode<Integer, String> Node65 = new Node<Integer, String>();
-		INode<Integer, String> Node15 = new Node<Integer, String>();
+//		INode<Integer, String> Node65 = new Node<Integer, String>();
+//		INode<Integer, String> Node15 = new Node<Integer, String>();
 //		INode<Integer, String> Node35 = new Node<Integer, String>();
-		INode<Integer, String> Node55 = new Node<Integer, String>();
-		INode<Integer, String> Node70 = new Node<Integer, String>();
-		INode<Integer, String> Node80 = new Node<Integer, String>();
-		INode<Integer, String> Node90 = new Node<Integer, String>();
-		INode<Integer, String> Node68 = new Node<Integer, String>();
+//		INode<Integer, String> Node55 = new Node<Integer, String>();
+//		INode<Integer, String> Node70 = new Node<Integer, String>();
+//		INode<Integer, String> Node80 = new Node<Integer, String>();
+//		INode<Integer, String> Node90 = new Node<Integer, String>();
+//		INode<Integer, String> Node68 = new Node<Integer, String>();
+//		
+//		System.out.println();
+//		System.out.println(new Node<>().isNull());
 		
-		INode<Integer, String> Node20 = new Node<Integer, String>();
-		INode<Integer, String> Node35 = new Node<Integer, String>();
-		
-		v.insert(526, "4427"); 
-		v.insert(370, "1597");
-		v.insert(1021, "6449");
-		
-		System.out.println(v.getRoot().getValue());
-		System.out.println(v.getRoot().getLeftChild().getValue());
-		System.out.println(v.getRoot().getRightChild().getValue());
-		System.out.println(v.getRoot().getRightChild().getLeftChild().isNull());
-		System.out.println(v.getRoot().getRightChild().getRightChild().isNull());
-		
-		System.out.println("Deleteion");
-		System.out.println(v.delete(370));
-		System.out.println(v.delete(526));
-		System.out.println(v.delete(1021));
-		
-		System.out.println(v.getRoot().isNull() +" root.isnull");
+//		v.insert(526, "4427"); 
+//		v.insert(370, "1597");
+//		v.insert(1021, "6449");
+//		
+//		System.out.println(v.getRoot().getValue());
+//		System.out.println(v.getRoot().getLeftChild().getValue());
+//		System.out.println(v.getRoot().getRightChild().getValue());
+//		System.out.println(v.getRoot().getRightChild().getLeftChild().isNull());
+//		System.out.println(v.getRoot().getRightChild().getRightChild().isNull());
+//		
+//		System.out.println("Deleteion");
+//		System.out.println(v.delete(370));
+//		System.out.println(v.delete(526));
+//		System.out.println(v.delete(1021));
+//		
+//		System.out.println(v.getRoot().isNull() +" root.isnull");
 		
 //		Node20.setKey(20);
 //		Node20.setValue("20");

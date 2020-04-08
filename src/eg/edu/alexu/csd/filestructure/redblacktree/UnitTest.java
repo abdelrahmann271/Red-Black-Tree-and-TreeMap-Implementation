@@ -398,10 +398,9 @@ public class UnitTest {
 		
 		try {
 			Random r = new Random();
-			for(int i = 0; i < 1; i++) {
+			for(int i = 0; i < 100; i++) {
 				int key = r.nextInt(1000);
 				redBlackTree.insert(key, "toto" + key);
-				//System.out.println(redBlackTree.getRoot());
 				Assert.assertTrue(verifyProps(redBlackTree.getRoot()));
 			}
 				
@@ -532,10 +531,8 @@ public class UnitTest {
 			for (Integer elem : list) 
 				Assert.assertTrue(redBlackTree.delete(elem));
 			INode<Integer, String> node = redBlackTree.getRoot();
-
 			if ((node == null || node.isNull()))
 				Assert.fail();
-//			System.out.println("a7aqqqq");
 			Assert.assertTrue(verifyProps(node));
 		} catch (Throwable e) {
 			TestRunner.fail("Fail to handle deletion", e);
@@ -586,20 +583,11 @@ public class UnitTest {
 				list.add(key);
 				redBlackTree.insert(key, "soso" + key);
 			}
-//			int i=0;
-			System.out.println(list.size());
-			for (Integer elem : list) {
-//				System.out.println(i);
+			for (Integer elem : list) 
 				redBlackTree.delete(elem);
-//				i++;
-			}
-			System.out.println("a7a");
 			INode<Integer, String> node = redBlackTree.getRoot();
-//			System.out.println("root "+node);
-			System.out.println(node.getKey());
 			if (!(node == null || node.isNull()))
 				Assert.fail();			
-			System.out.println("a7a2");
 			Assert.assertTrue(verifyProps(node));
 		} catch (Throwable e) {
 			TestRunner.fail("Fail to handle deletion", e);
@@ -628,6 +616,7 @@ public class UnitTest {
 				if (!list.contains(key))
 					Assert.assertFalse(redBlackTree.delete(key));
 			}
+			
 			Assert.assertTrue(verifyProps(redBlackTree.getRoot()));
 		} catch (Throwable e) {
 			TestRunner.fail("Fail to handle deletion", e);
@@ -1707,9 +1696,7 @@ public class UnitTest {
 	}
 
 	private boolean verifyProperty3(INode<Integer, String> node) {
-		if (node == null || node.isNull()) {
-			return node.getColor() == INode.BLACK;
-		}
+		if (node == null || node.isNull()) return node.getColor() == INode.BLACK;
 
 		return verifyProperty3(node.getLeftChild()) && verifyProperty3(node.getRightChild());
 	}
@@ -1723,7 +1710,7 @@ public class UnitTest {
 		return verifyProperty4(node.getLeftChild()) && verifyProperty4(node.getRightChild());
 	}
 	
-	public boolean verifyProperty5(INode<Integer, String> node) {
+	private boolean verifyProperty5(INode<Integer, String> node) {
 		boolean[] ans = new boolean[]{true};
 		verifyProperty5Helper(node, ans);
 		return ans[0];
@@ -1731,21 +1718,16 @@ public class UnitTest {
 
 	private int verifyProperty5Helper(INode<Integer, String> node, boolean[] ans) {
 		if (node == null) return 1;
-		
+
 		int leftCount = verifyProperty5Helper(node.getLeftChild(), ans);
 		int rightCount = verifyProperty5Helper(node.getRightChild(), ans);
-//		System.out.println("Left count " +leftCount );
-//		System.out.println("right count " +rightCount);
+
 		ans[0] = ans[0] && (leftCount == rightCount);
 		return leftCount + (!isRed(node)? 1 : 0);
 	}
 
-	private boolean verifyProps(INode<Integer, String> root) {
-//		System.out.println(verifyProperty2(root));
-//		System.out.println(verifyProperty3(root));
-//		System.out.println(verifyProperty4(root));
-//		System.out.println(verifyProperty5(root));
-//		System.out.println(validateBST(root, null, null));
+	boolean verifyProps(INode<Integer, String> root) {
+		System.out.println(validateBST(root,null,null));
 		return verifyProperty2(root) && verifyProperty3(root) && verifyProperty4(root) && verifyProperty5(root) && validateBST(root, null, null);
 	}
 
