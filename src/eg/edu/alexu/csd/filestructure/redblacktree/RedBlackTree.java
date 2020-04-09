@@ -5,7 +5,7 @@ import javax.management.RuntimeErrorException;
 public class RedBlackTree<T extends Comparable<T>, V> implements IRedBlackTree<T, V>  {
 	
 	private INode<T,V> root = new Node<>();
-	
+	public int size=0;
 	@Override
 	public INode<T, V> getRoot() {
 		// TODO Auto-generated method stub
@@ -18,10 +18,12 @@ public class RedBlackTree<T extends Comparable<T>, V> implements IRedBlackTree<T
 			return true;
 		return false;
 	}
+  
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
 		this.root = new Node<>();
+		size=0;
 	}
 	@Override
 	public V search(T key) {
@@ -65,6 +67,9 @@ public class RedBlackTree<T extends Comparable<T>, V> implements IRedBlackTree<T
 			Error e = null;
 			throw new RuntimeErrorException(e);
 		}
+		else{
+			size++;
+		}
 		// TODO Auto-generated method stub
 		if(this.isEmpty()) {
 			this.root = new Node<>();
@@ -107,6 +112,7 @@ public class RedBlackTree<T extends Comparable<T>, V> implements IRedBlackTree<T
 				else {
 					//it's inserted from before , so no insert-fix-up , just update the value
 					itrNode.setValue(value);
+					size--;
 					break;
 				}
 			}		
@@ -268,6 +274,7 @@ public class RedBlackTree<T extends Comparable<T>, V> implements IRedBlackTree<T
 		if(NodeItr.isNull()) //key not found
 			return false;
 		//Key is found		
+		size--;
 		return this.DeleteNode(NodeItr);
 	}
 	
@@ -445,4 +452,7 @@ public class RedBlackTree<T extends Comparable<T>, V> implements IRedBlackTree<T
 		Node1.setColor(Node2.getColor());
 		Node2.setColor(color);
 	}
+	  public int getSize() {
+	    	return size;
+	    }
 }

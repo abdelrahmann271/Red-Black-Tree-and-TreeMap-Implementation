@@ -8,28 +8,28 @@ public class Test {
 	
 	public static <T> void main(String[] args) {
 		
-		UnitTest d = new UnitTest();
-		RedBlackTree<Integer, String> v = new RedBlackTree<>();
-		
-		v.insert(2953,"2953");
-		v.insert(2524,"2524");
-		v.insert(6553,"6553");
-		v.insert(2250,"2250");
-		v.insert(1931,"1931");
-		v.insert(6551,"6551");
-		v.insert(9067,"9067");
-		v.insert(6093,"6093");
-		v.insert(3339,"3339");
-		v.insert(2074,"2074");
-		
-		v.delete(6553);
-		v.delete(1931);
-		v.delete(9067);
-		System.out.println();
-		UnitTest c = new UnitTest();
-		System.out.println(c.verifyProps(v.getRoot()));
-		
-		RBTreePrinter.print(v.getRoot());
+//		UnitTest d = new UnitTest();
+//		RedBlackTree<Integer, String> v = new RedBlackTree<>();
+//		
+//		v.insert(2953,"2953");
+//		v.insert(2524,"2524");
+//		v.insert(6553,"6553");
+//		v.insert(2250,"2250");
+//		v.insert(1931,"1931");
+//		v.insert(6551,"6551");
+//		v.insert(9067,"9067");
+//		v.insert(6093,"6093");
+//		v.insert(3339,"3339");
+//		v.insert(2074,"2074");
+//		
+//		v.delete(6553);
+//		v.delete(1931);
+//		v.delete(9067);
+//		System.out.println();
+//		UnitTest c = new UnitTest();
+//		System.out.println(c.verifyProps(v.getRoot()));
+//		
+//		RBTreePrinter.print(v.getRoot());
 //		Random r = new Random();
 //		for(int i = 0; i < 100; i++) {
 //			int key = r.nextInt(1000);

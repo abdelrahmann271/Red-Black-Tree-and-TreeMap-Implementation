@@ -1726,8 +1726,7 @@ public class UnitTest {
 		return leftCount + (!isRed(node)? 1 : 0);
 	}
 
-	boolean verifyProps(INode<Integer, String> root) {
-		System.out.println(validateBST(root,null,null));
+	private boolean verifyProps(INode<Integer, String> root) {
 		return verifyProperty2(root) && verifyProperty3(root) && verifyProperty4(root) && verifyProperty5(root) && validateBST(root, null, null);
 	}
 
